@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Secure File Exchange</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <button onclick="navigate('datafile.html')">Data File</button>
+      <button onclick="navigate('security.html')">Security Settings</button>
+      <button onclick="navigate('transactions.html')">Transaction History</button>
+      <button onclick="navigate('eventlog.html')">Event Log</button>
+      <button onclick="navigate('encrypt.html')">Encrypt</button>
+      <button onclick="navigate('decrypt.html')">Decrypt</button>
+    </aside>
+
+    <main class="profile">
+      <h2>User Profile</h2>
+      
+      <div class="info">
+        <p><strong>User ID:</strong> goapl123</p>
+        <p><strong>Name:</strong> Gopal</p>
+        <p><strong>Department:</strong>ITC</p>
+        <p><strong>Date of Birth:</strong> 2000-01-01</p>
+        <p><strong>Landline:</strong> 044-2345 4543</p>
+        <p><strong>Address:</strong> 123 Main Street, City</p>
+      </div>
+      <!-- ✅ Updated canvas size -->
+      <canvas id="usageChart" width="350" height="350"></canvas>
+    </main>
+  </div>
+
+  <script>
+    function navigate(page) {
+      window.location.href = page;
+    }
+
+    const ctx = document.getElementById("usageChart").getContext("2d");
+    new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: ["Login Duration", "Idle Time"],
+        datasets: [{
+          data: [80, 20],
+          backgroundColor: ["#4CAF50", "#f44336"]
+        }]
+      }
+    });
+  </script>
+  <button>
+  <a href ="logout.html">Log out</a></button>
+</body>
+</html>
